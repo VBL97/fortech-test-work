@@ -1,0 +1,4 @@
+.list_content {
+  display: flex;
+  gap: 3px;
+}

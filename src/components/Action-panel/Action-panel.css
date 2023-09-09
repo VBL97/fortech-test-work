@@ -1,0 +1,9 @@
+.action-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 15vh;
+  background-color: #001c30;
+  border-radius: 30px;
+}

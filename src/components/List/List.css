@@ -1,0 +1,11 @@
+.list {
+  margin: auto;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #001c30;
+  border-radius: 30px;
+  height: 80vh;
+}
+
+@import url('./elemens-style/list_content.css');
