@@ -1,0 +1,17 @@
+.card_text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.card_text:first-child {
+  color: green;
+}
+
+.card_text:nth-child(2) {
+  color: red;
+}
+
+.card_text:last-child {
+  color: blue;
+}

@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const pokemonsInitialState = {
   initialFetchParams: undefined,
   initialPokemons: undefined,
+  initialPokemonsData: undefined,
 };
 
 export const PokemonsSlice = createSlice({
@@ -15,12 +16,16 @@ export const PokemonsSlice = createSlice({
     setFetchParams: (state, action) => {
       state.initialFetchParams = action.payload;
     },
+    setPokemonsData: (state, action) => {
+      state.initialPokemonsData = action.payload;
+    },
   },
 });
 
 const selectPokemons = (state) => state.pokemons.initialPokemons;
 const selectPokemonsFetchParams = (state) => state.pokemons.initialFetchParams;
+const selectPokemonsData = (state) => state.pokemons.initialPokemonsData;
 
-export { selectPokemons, selectPokemonsFetchParams };
+export { selectPokemons, selectPokemonsFetchParams, selectPokemonsData };
 
-export const { setPokemons, setFetchParams } = PokemonsSlice.actions;
+export const { setPokemons, setFetchParams, setPokemonsData } = PokemonsSlice.actions;
