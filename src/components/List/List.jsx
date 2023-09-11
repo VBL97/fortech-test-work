@@ -28,7 +28,11 @@ export default function List() {
 
   return (
     <div className='list'>
-      <div className='list_pagination-count'></div>
+      <div className='list_count'>
+        <button className='list_count-amount'>10</button>
+        <button className='list_count-amount'>20</button>
+        <button className='list_count-amount'>50</button>
+      </div>
       {/* Need to be refactored */}
       <ul className='list_content'>
         {pokemonsData?.map((pokemon) => (

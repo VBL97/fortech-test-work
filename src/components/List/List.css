@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 30px;
-  height: 80vh;
+  width: 82%;
 }
 
 @import url('./elemens-style/list_content.css');
+@import url('./elemens-style/list_count.css');
+@import url('./elemens-style/list_count-amount.css');
