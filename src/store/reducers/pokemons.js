@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const pokemonsInitialState = {
-  initialFetchParams: undefined,
+  initialFetchParams: 'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0',
   initialPokemons: undefined,
   initialPokemonsData: undefined,
 };

@@ -1,11 +1,13 @@
 .card_pokemon-type-tag {
   margin: 0;
-  display: flex;
-  gap: 4px;
+  width: 60px;
+  height: 45%;
   font-size: 15px;
   font-weight: bold;
+  text-align: center;
   text-transform: capitalize;
   border: 1px solid transparent;
   border-radius: 5px;
-  background-color: #eb6440;
+  background-color: #719fb0;
+  box-sizing: border-box;
 }

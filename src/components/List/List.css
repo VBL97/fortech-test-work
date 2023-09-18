@@ -5,8 +5,15 @@
   flex-direction: column;
   align-items: center;
   width: 82%;
+  gap: 20px;
 }
 
 @import url('./elemens-style/list_content.css');
 @import url('./elemens-style/list_count.css');
 @import url('./elemens-style/list_count-amount.css');
+@import url('./elemens-style/list_count-amount_current.css');
+@import url('./elemens-style/list-pagination.css');
+@import url('./elemens-style/list-pagination-page.css');
+@import url('./elemens-style/list-pagination-active-page.css');
+@import url('./elemens-style/list-pagination-previous-page.css');
+@import url('./elemens-style/list-pagination-next-page.css');

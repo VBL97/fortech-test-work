@@ -1,5 +1,6 @@
 .card_info {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  padding: 0 5px 0 5px;
+  gap: 10px;
 }

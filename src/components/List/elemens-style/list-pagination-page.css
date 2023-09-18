@@ -1,13 +1,13 @@
-.list_count-amount {
-  border: none;
-  background-color: transparent;
+.list-pagination-page {
   border-radius: 10%;
-  font-size: 16px;
+  font-size: 20px;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  text-align: center;
+  padding: 0 3px 0 3px;
 }
 
-.list_count-amount:hover {
+.list-pagination-page:hover {
   cursor: pointer;
   opacity: 0.5;
 }

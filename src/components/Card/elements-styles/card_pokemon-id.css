@@ -1,0 +1,12 @@
+.card_pokemon-id {
+  /* position: absolute; */
+  margin: 2px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 25px;
+
+  color: white;
+  align-self: center;
+  /* left: 2px;
+  top: 3px; */
+}
