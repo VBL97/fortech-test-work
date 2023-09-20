@@ -35,8 +35,6 @@ export default function List() {
   }, [dispatch, pokemons]);
 
   useLayoutEffect(() => {
-    console.log(nextAmount);
-
     dispatch(
       setFetchParams(
         `https://pokeapi.co/api/v2/pokemon/?limit=${currentAmount}&offset=${nextAmount}`,
@@ -50,7 +48,6 @@ export default function List() {
   }
 
   const handlePageClick = (event) => {
-    console.log((event.selected * currentAmount) % pokemons?.count);
     setNextAmount((event.selected * currentAmount) % pokemons?.count);
   };
 

@@ -3,12 +3,11 @@ import './Action-button.css';
 import { useDispatch } from 'react-redux';
 import { setFetchParams, setPokemonsData } from '../../store/reducers/pokemons';
 import pokeball from '../../img/pngaaa.com-96218.png';
+import dismiss from '../../img/dismiss.png';
 
 export default function ActionButton() {
   const dispatch = useDispatch();
   const [pokemonName, setPokemonName] = useState();
-
-  console.log(pokemonName);
 
   function HandleShowButtonClick(evt) {
     evt.preventDefault();
@@ -25,13 +24,13 @@ export default function ActionButton() {
   }
 
   return (
-    <>
+    <div className='search-panel'>
       <button className='action-button' onClick={handleSearchCancelClick}>
-        <img className='action-button-image' src={pokeball} alt='pokeball' />
+        <img className='action-button-image' src={dismiss} alt='pokeball' />
       </button>
       <form className='action-form'>
         <input
-          placeholder='Search...'
+          placeholder='Search by name'
           value={pokemonName}
           onChange={(evt) => setPokemonName(evt.target.value)}
           className='search-input'></input>
@@ -39,6 +38,6 @@ export default function ActionButton() {
           <img className='action-button-image' src={pokeball} alt='pokeball' />
         </button>
       </form>
-    </>
+    </div>
   );
 }

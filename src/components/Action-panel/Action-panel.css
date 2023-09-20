@@ -1,8 +1,8 @@
 .action-panel {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 15vh;
-  width: 50vh;
+  gap: 20px;
 }
