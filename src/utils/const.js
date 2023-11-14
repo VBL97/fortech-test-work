@@ -17,4 +17,6 @@ export const typesColors = {
   ghost: '#3F3B6C',
   dragon: '#F15A59',
   dark: '#393646',
+  shadow: '#2C3639',
+  unknown: '#FFF6F6',
 };

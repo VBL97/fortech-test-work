@@ -8,6 +8,7 @@ import {
   setFetchParams,
 } from '../../store/reducers/pokemons';
 import Card from '../Card/Card';
+import Loader from '../Loader/Loader';
 import ReactPaginate from 'react-paginate';
 import { prepareTypes } from '../../utils/preparation-functions';
 

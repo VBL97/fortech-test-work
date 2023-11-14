@@ -16,6 +16,10 @@
 }
 
 .types-tag:hover {
+  transform: scale(1.09);
+}
+
+.types-tag:hover {
   cursor: pointer;
   opacity: 0.8;
 }

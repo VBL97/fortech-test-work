@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import ActionPanel from '../Action-panel/Actition-panel';
-import List from '../List/List';
-import './App.css';
+import Main from '../../pages/Main/Main';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setPokemons,
   setPokemonsTypes,
   selectPokemonsFetchParams,
 } from '../../store/reducers/pokemons';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 function App() {
   let dispatch = useDispatch();
@@ -24,10 +24,11 @@ function App() {
     .then((data) => dispatch(setPokemonsTypes(data.results)));
 
   return (
-    <div className='app'>
-      <ActionPanel />
-      <List />
-    </div>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
