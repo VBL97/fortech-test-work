@@ -1,0 +1,9 @@
+.search-panel {
+  display: flex;
+  gap: 10px;
+}
+
+@import url('./Search-form.css');
+@import url('./Search-input.css');
+@import url('./Action-button.css');
+@import url('./Action-button-image.css');

@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'Kdam Thmor Pro';
+  src: url('./vendor/fonts/KdamThmorPro-Regular.ttf');
+}
+
 body {
   margin: 0 auto;
   background-color: #d6e4e5;
   max-width: 1920px;
   min-width: 320px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Kdam Thmor Pro', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Action-button.css';
 import { useDispatch } from 'react-redux';
-import { setFetchParams, setPokemonsData } from '../../store/reducers/pokemons';
+import './Search-panel.css';
 import pokeball from '../../img/pngaaa.com-96218.png';
 import dismiss from '../../img/dismiss.png';
+import { setFetchParams, setPokemonsData } from '../../store/reducers/pokemons';
 
-export default function ActionButton() {
+export default function SearchPanel() {
   const dispatch = useDispatch();
   const [pokemonName, setPokemonName] = useState();
 
@@ -19,7 +19,6 @@ export default function ActionButton() {
   }
 
   function handleSearchCancelClick() {
-    console.log('cancel');
     dispatch(setFetchParams(`https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0`));
   }
 
@@ -28,7 +27,7 @@ export default function ActionButton() {
       <button className='action-button' onClick={handleSearchCancelClick}>
         <img className='action-button-image' src={dismiss} alt='pokeball' />
       </button>
-      <form className='action-form'>
+      <form className='search-form'>
         <input
           placeholder='Search by name'
           value={pokemonName}

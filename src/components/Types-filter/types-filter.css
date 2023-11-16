@@ -1,11 +1,75 @@
 .types__container {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 30px;
+  background-color: transparent;
+  padding: 15px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(2, 1fr);
   justify-content: center;
   column-gap: 8px;
   row-gap: 8px;
-  margin-bottom: 10px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.types__container {
+  opacity: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease; /* Adjusted transition properties */
+  overflow: hidden;
+  max-height: 0;
+}
+
+.types__container.slide-in {
+  animation: slideIn 0.3s ease;
+  opacity: 1;
+  max-height: 500px; /* Adjust the max-height value to fit your content */
+}
+
+.types__container.slide-out {
+  animation: slideOut 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 550px) {
+  .types__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @import url('./elements-style/types-tag.css');
+@import url('./elements-style/open-button.css');
