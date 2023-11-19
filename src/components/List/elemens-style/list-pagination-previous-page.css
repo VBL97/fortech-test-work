@@ -1,8 +1,10 @@
 .list-pagination-previous-page {
-  border-radius: 10%;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
   font-size: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
 }
 
 .list-pagination-previous-page:hover {

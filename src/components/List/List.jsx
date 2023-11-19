@@ -1,11 +1,11 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './List.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectPokemons,
   selectPokemonsData,
-  setPokemonsData,
   setFetchParams,
+  selectLoadingStatus,
 } from '../../store/reducers/pokemons';
 import Card from '../Card/Card';
 import Loader from '../Loader/Loader';
@@ -19,23 +19,9 @@ export default function List() {
   const pokemons = useSelector(selectPokemons);
   const pokemonsData = useSelector(selectPokemonsData);
   const pageCount = Math.ceil(pokemons?.count / currentAmount);
+  const loading = useSelector(selectLoadingStatus);
 
   useEffect(() => {
-    if (pokemons === undefined) {
-      return;
-    }
-    Promise.all(
-      pokemons.results.map((el) => {
-        return fetch(`https://pokeapi.co/api/v2/pokemon/${el.name}`).then((response) =>
-          response.json(),
-        );
-      }),
-    )
-      .then((data) => dispatch(setPokemonsData(data)))
-      .catch((error) => console.error(error));
-  }, [dispatch, pokemons]);
-
-  useLayoutEffect(() => {
     dispatch(
       setFetchParams(
         `https://pokeapi.co/api/v2/pokemon/?limit=${currentAmount}&offset=${nextAmount}`,
@@ -52,46 +38,54 @@ export default function List() {
     setNextAmount((event.selected * currentAmount) % pokemons?.count);
   };
 
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className='list'>
-      <div className='list_count'>
-        <button
-          className={`list_count-amount ${
-            currentAmount === 10 ? 'list_count-amount_current' : null
-          }`}
-          onClick={() => handleAmountButtonClick(10)}>
-          10
-        </button>
-        <button
-          className={`list_count-amount ${
-            currentAmount === 20 ? 'list_count-amount_current' : null
-          }`}
-          onClick={() => handleAmountButtonClick(20)}>
-          20
-        </button>
-        <button
-          className={`list_count-amount ${
-            currentAmount === 50 ? 'list_count-amount_current' : null
-          }`}
-          onClick={() => handleAmountButtonClick(50)}>
-          50
-        </button>
-      </div>
-      <ReactPaginate
-        pageCount={pageCount}
-        containerClassName='list-pagination'
-        breakLabel='...'
-        nextLabel='>'
-        previousLabel='<'
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        onPageChange={handlePageClick}
-        renderOnZeroPageCount={null}
-        pageLinkClassName='list-pagination-page'
-        activeLinkClassName='list-pagination-active-page'
-        previousLinkClassName='list-pagination-previous-page'
-        nextLinkClassName='list-pagination-next-page'
-      />
+      {pokemonsData?.length > 9 ? (
+        <>
+          <div className='list_count'>
+            <button
+              className={`list_count-amount ${
+                currentAmount === 10 ? 'list_count-amount_current' : null
+              }`}
+              onClick={() => handleAmountButtonClick(10)}>
+              10
+            </button>
+            <button
+              className={`list_count-amount ${
+                currentAmount === 20 ? 'list_count-amount_current' : null
+              }`}
+              onClick={() => handleAmountButtonClick(20)}>
+              20
+            </button>
+            <button
+              className={`list_count-amount ${
+                currentAmount === 50 ? 'list_count-amount_current' : null
+              }`}
+              onClick={() => handleAmountButtonClick(50)}>
+              50
+            </button>
+          </div>
+          <ReactPaginate
+            pageCount={pageCount}
+            containerClassName='list-pagination'
+            breakLabel='...'
+            nextLabel='>'
+            previousLabel='<'
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageClick}
+            renderOnZeroPageCount={null}
+            pageLinkClassName='list-pagination-page'
+            activeLinkClassName='list-pagination-active-page'
+            previousLinkClassName='list-pagination-previous-page'
+            nextLinkClassName='list-pagination-next-page'
+          />
+        </>
+      ) : null}
+
       {/* Need to be refactored */}
       <ul className='list_content'>
         {pokemonsData?.map((pokemon) => (
@@ -107,12 +101,6 @@ export default function List() {
           />
         ))}
       </ul>
-
-      {/* <div className='list-pagination'>
-        <button className='list_more' onClick={handleMoreButtonClick}>
-          Show next page
-        </button>
-      </div> */}
     </div>
   );
 }

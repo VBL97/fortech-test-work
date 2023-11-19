@@ -5,6 +5,9 @@
 
 body {
   margin: 0 auto;
+  background-image: url('./img/pokémon-pallet-town-3840x2160-v0-rsg1ogtm8cqb1\ \(1\).png');
+  background-size: contain;
+  background-repeat: repeat;
   background-color: #d6e4e5;
   max-width: 1920px;
   min-width: 320px;

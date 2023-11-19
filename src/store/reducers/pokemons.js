@@ -5,6 +5,7 @@ const pokemonsInitialState = {
   initialPokemonsTypes: undefined,
   initialPokemons: undefined,
   initialPokemonsData: undefined,
+  loading: false,
 };
 
 export const PokemonsSlice = createSlice({
@@ -12,6 +13,7 @@ export const PokemonsSlice = createSlice({
   initialState: pokemonsInitialState,
   reducers: {
     setFetchParams: (state, action) => {
+      state.loading = true;
       state.initialFetchParams = action.payload;
     },
     setPokemonsTypes: (state, action) => {
@@ -21,6 +23,7 @@ export const PokemonsSlice = createSlice({
       state.initialPokemons = action.payload;
     },
     setPokemonsData: (state, action) => {
+      state.loading = false;
       state.initialPokemonsData = action.payload;
     },
   },
@@ -31,8 +34,15 @@ const selectPokemons = (state) => state.pokemons.initialPokemons;
 const selectPokemonsFetchParams = (state) => state.pokemons.initialFetchParams;
 const selectPokemonsData = (state) => state.pokemons.initialPokemonsData;
 const selectPokemonsTypes = (state) => state.pokemons.initialPokemonsTypes;
+const selectLoadingStatus = (state) => state.pokemons.loading;
 
-export { selectPokemons, selectPokemonsFetchParams, selectPokemonsData, selectPokemonsTypes };
+export {
+  selectPokemons,
+  selectPokemonsFetchParams,
+  selectPokemonsData,
+  selectPokemonsTypes,
+  selectLoadingStatus,
+};
 
 export const { setPokemons, setFetchParams, setPokemonsData, setPokemonsTypes } =
   PokemonsSlice.actions;

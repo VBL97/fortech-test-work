@@ -1,9 +1,11 @@
 .search-panel {
   display: flex;
+  width: 332px;
+  justify-content: flex-end;
   gap: 10px;
 }
 
 @import url('./Search-form.css');
 @import url('./Search-input.css');
-@import url('./Action-button.css');
-@import url('./Action-button-image.css');
+@import url('../Action-button/Action-button.css');
+@import url('../Action-button/Action-button-image.css');

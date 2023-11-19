@@ -14,22 +14,21 @@ export default function TypesFilter() {
   }
 
   function onTagClick(typeName) {
-    console.log(activeTags);
     setActiveTags((prevActiveTags) => {
       if (prevActiveTags.includes(typeName)) {
-        // If the tag is already active, remove it
         return prevActiveTags.filter((tag) => tag !== typeName);
       } else {
-        // If the tag is not active, add it
         return [...prevActiveTags, typeName];
       }
     });
   }
 
+  function fetchType() {}
+
   return (
     <>
       <button className='open-button' onClick={onAdvanceButtonClick}>
-        {panelOpened ? '↑ Hide types for search' : '↓ Show types for search'}
+        {panelOpened ? '↑ Hide types' : '↓ Show types for search'}
       </button>
 
       <div className={`types__container ${panelOpened ? 'slide-in' : 'slide-out'}`}>
