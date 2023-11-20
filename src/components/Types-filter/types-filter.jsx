@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectPokemonsTypes } from '../../store/reducers/pokemons';
 import './types-filter.css';
 import { typesColors } from '../../utils/const';
+import { setFetchParams } from '../../store/reducers/pokemons';
 
 export default function TypesFilter() {
+  const dispatch = useDispatch();
   const PokemonsTypes = useSelector(selectPokemonsTypes);
   const [panelOpened, setPanelOpened] = useState(false);
   const [activeTags, setActiveTags] = useState([]);
@@ -14,6 +16,7 @@ export default function TypesFilter() {
   }
 
   function onTagClick(typeName) {
+    fetchType(typeName);
     setActiveTags((prevActiveTags) => {
       if (prevActiveTags.includes(typeName)) {
         return prevActiveTags.filter((tag) => tag !== typeName);
@@ -23,7 +26,9 @@ export default function TypesFilter() {
     });
   }
 
-  function fetchType() {}
+  function fetchType(type) {
+    dispatch(setFetchParams(`https://pokeapi.co/api/v2/type/${type}`));
+  }
 
   return (
     <>

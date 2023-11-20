@@ -38,12 +38,9 @@ export default function List() {
     setNextAmount((event.selected * currentAmount) % pokemons?.count);
   };
 
-  if (loading) {
-    return <Loader />;
-  }
   return (
     <div className='list'>
-      {pokemonsData?.length > 9 ? (
+      {pokemonsData?.length !== 1 ? (
         <>
           <div className='list_count'>
             <button
@@ -87,20 +84,24 @@ export default function List() {
       ) : null}
 
       {/* Need to be refactored */}
-      <ul className='list_content'>
-        {pokemonsData?.map((pokemon) => (
-          <Card
-            id={pokemon.id}
-            name={pokemon.name}
-            avatar={pokemon.sprites.front_default}
-            type={prepareTypes(pokemon.types)}
-            hp={pokemon.stats.find((el) => el.stat.name === 'hp').base_stat}
-            attack={pokemon.stats.find((el) => el.stat.name === 'attack').base_stat}
-            defense={pokemon.stats.find((el) => el.stat.name === 'defense').base_stat}
-            key={pokemon.id}
-          />
-        ))}
-      </ul>
+      {loading ? (
+        <Loader />
+      ) : (
+        <ul className='list_content'>
+          {pokemonsData?.map((pokemon) => (
+            <Card
+              id={pokemon.id}
+              name={pokemon.name}
+              avatar={pokemon.sprites.front_default}
+              type={prepareTypes(pokemon.types)}
+              hp={pokemon.stats.find((el) => el.stat.name === 'hp').base_stat}
+              attack={pokemon.stats.find((el) => el.stat.name === 'attack').base_stat}
+              defense={pokemon.stats.find((el) => el.stat.name === 'defense').base_stat}
+              key={pokemon.id}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

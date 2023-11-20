@@ -27,7 +27,6 @@ function App() {
       return;
     }
     if (Object.keys(pokemons).includes('name')) {
-      console.log([pokemons]);
       dispatch(setPokemonsData([pokemons]));
     } else {
       Promise.all(
