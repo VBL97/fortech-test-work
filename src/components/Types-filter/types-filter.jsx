@@ -27,6 +27,10 @@ export default function TypesFilter() {
   }
 
   function fetchType(type) {
+    // fetch(`https://pokeapi.co/api/v2/type/${type}`)
+    //   .then((data) => data.json())
+    //   .then((data) => console.log(data.pokemon));
+
     dispatch(setFetchParams(`https://pokeapi.co/api/v2/type/${type}`));
   }
 

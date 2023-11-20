@@ -26,20 +26,44 @@ function App() {
     if (pokemons === undefined) {
       return;
     }
-    if (Object.keys(pokemons).includes('name')) {
-      dispatch(setPokemonsData([pokemons]));
-    } else {
-      Promise.all(
-        pokemons.results.map((el) => {
-          return fetch(`https://pokeapi.co/api/v2/pokemon/${el.name}`).then((response) =>
-            response.json(),
-          );
-        }),
-      )
-        .then((data) => dispatch(setPokemonsData(data)))
-        .catch((error) => console.error(error));
+
+    console.log(pokemons);
+
+    switch (true) {
+      case Object.keys(pokemons).includes('weight'):
+        console.log(pokemons);
+        dispatch(setPokemonsData([pokemons]));
+        break;
+      case Object.keys(pokemons).includes('pokemon'):
+        // Code below have to be refactored
+        Promise.all(
+          pokemons.pokemon.map((el) => {
+            return fetch(`https://pokeapi.co/api/v2/pokemon/${el.pokemon.name}`).then((response) =>
+              response.json(),
+            );
+          }),
+        )
+          .then((data) => dispatch(setPokemonsData(data)))
+          .catch((error) => console.error(error));
+        console.log(pokemons);
+        break;
+      default:
+        fetchRequestedPokemons(pokemons.results);
+        break;
     }
   }, [dispatch, pokemons]);
+
+  function fetchRequestedPokemons(data) {
+    Promise.all(
+      data.map((el) => {
+        return fetch(`https://pokeapi.co/api/v2/pokemon/${el.name}`).then((response) =>
+          response.json(),
+        );
+      }),
+    )
+      .then((data) => dispatch(setPokemonsData(data)))
+      .catch((error) => console.error(error));
+  }
 
   fetch('https://pokeapi.co/api/v2/type/')
     .then((res) => res.json())
