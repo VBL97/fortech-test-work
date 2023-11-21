@@ -1,0 +1,13 @@
+.pokemon {
+  min-height: max-content;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  border: solid 1px red;
+}
+
+@import url('./styles/pokemon__data.css');
+@import url('./styles/pokemon__photos.css');
+@import url('./styles/pokemon__photo.css');

@@ -5,10 +5,9 @@
 
 body {
   margin: 0 auto;
-  background-image: url('./img/pokémon-pallet-town-3840x2160-v0-rsg1ogtm8cqb1\ \(1\).png');
-  background-size: contain;
+  background-image: url('../src/img/pokémon-pallet-town-3840x2160-v0-rsg1ogtm8cqb1\ \(1\).png');
   background-repeat: repeat;
-  background-color: #d6e4e5;
+  height: 100vh;
   max-width: 1920px;
   min-width: 320px;
   font-family: -apple-system, BlinkMacSystemFont, 'Kdam Thmor Pro', 'Roboto', 'Oxygen', 'Ubuntu',
@@ -21,5 +20,15 @@ body {
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
+
+/* Maybe to use? */
+/* @keyframes backgroundTransition {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+} */
 
 @import url(./vendor/normalize.css);

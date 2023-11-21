@@ -31,11 +31,11 @@ export default function Card({ id, name, avatar = pokeball, type, hp, attack, de
 
         <div className='card_pokemon-info-block'>
           <p className='card_info-heading'>Stats:</p>
-          <div className='card_stats-list'>
-            <p className='card_text'>HP: {hp}</p>
-            <p className='card_text'>Attack: {attack}</p>
-            <p className='card_text'>Defense: {defense}</p>
-          </div>
+          <ul className='card_stats-list'>
+            <li className='card_text'>HP: {hp}</li>
+            <li className='card_text'>Attack: {attack}</li>
+            <li className='card_text'>Defense: {defense}</li>
+          </ul>
         </div>
       </div>
     </li>

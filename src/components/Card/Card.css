@@ -1,9 +1,9 @@
 @keyframes expandCard {
   from {
-    opacity: 0; /* Начальная непрозрачность - 0 */
+    opacity: 0;
   }
   to {
-    opacity: 1; /* Конечная непрозрачность - 1 (полностью видимая) */
+    opacity: 1;
   }
 }
 
@@ -23,7 +23,7 @@
 }
 
 .card:hover {
-  transform: scale(1.07); /* Увеличиваем масштаб карточки при наведении курсора */
+  transform: scale(1.07);
 }
 
 @import url('./elements-styles/card_header.css');

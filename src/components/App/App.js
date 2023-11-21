@@ -10,6 +10,7 @@ import {
   selectPokemonsFetchParams,
   selectPokemons,
 } from '../../store/reducers/pokemons';
+import Pokemon from '../../pages/Pokemon/Pokemon';
 
 function App() {
   let dispatch = useDispatch();
@@ -58,7 +59,8 @@ function App() {
   return (
     <>
       <Header />
-      <Main />
+      <Pokemon />
+      {/* <Main /> */}
       <Footer />
     </>
   );
