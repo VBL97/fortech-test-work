@@ -10,6 +10,7 @@ import {
   selectLoadingStatus,
 } from '../../store/reducers/pokemons';
 import { prepareTypes } from '../../utils/preparation-functions';
+import { amountToShow } from '../../utils/const';
 import './List.css';
 
 export default function List() {
@@ -19,6 +20,7 @@ export default function List() {
   const pokemons = useSelector(selectPokemons);
   const pokemonsData = useSelector(selectPokemonsData);
   const pageCount = Math.ceil(pokemons?.count / currentAmount);
+  // const pageCount = Math.ceil(pokemons.pokemon.length / currentAmount);
   const loading = useSelector(selectLoadingStatus);
 
   useEffect(() => {
@@ -43,27 +45,18 @@ export default function List() {
       {pokemonsData?.length !== 1 ? (
         <>
           <div className='list_count'>
-            <button
-              className={`list_count-amount ${
-                currentAmount === 10 ? 'list_count-amount_current' : null
-              }`}
-              onClick={() => handleAmountButtonClick(10)}>
-              10
-            </button>
-            <button
-              className={`list_count-amount ${
-                currentAmount === 20 ? 'list_count-amount_current' : null
-              }`}
-              onClick={() => handleAmountButtonClick(20)}>
-              20
-            </button>
-            <button
-              className={`list_count-amount ${
-                currentAmount === 50 ? 'list_count-amount_current' : null
-              }`}
-              onClick={() => handleAmountButtonClick(50)}>
-              50
-            </button>
+            {amountToShow.map((amount) => {
+              return (
+                <button
+                  className={`list_count-amount ${
+                    currentAmount === amount ? 'list_count-amount_current' : null
+                  }`}
+                  onClick={() => handleAmountButtonClick(amount)}
+                  key={amount}>
+                  {amount}
+                </button>
+              );
+            })}
           </div>
           <ReactPaginate
             pageCount={pageCount}
@@ -82,7 +75,6 @@ export default function List() {
           />
         </>
       ) : null}
-
       {/* Need to be refactored */}
       {loading ? (
         <Loader />

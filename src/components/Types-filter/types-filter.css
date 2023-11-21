@@ -47,7 +47,7 @@
 
 .types__container {
   opacity: 0;
-  transition: opacity 0.3s ease, max-height 0.3s ease; /* Adjusted transition properties */
+  transition: opacity 0.3s ease, max-height 0.3s ease;
   overflow: hidden;
   max-height: 0;
 }
@@ -55,7 +55,7 @@
 .types__container.slide-in {
   animation: slideIn 0.3s ease;
   opacity: 1;
-  max-height: 500px; /* Adjust the max-height value to fit your content */
+  max-height: 500px;
 }
 
 .types__container.slide-out {
@@ -63,6 +63,18 @@
   opacity: 0;
   max-height: 0;
   pointer-events: none;
+}
+
+@media (max-width: 960px) {
+  .types__container {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (max-width: 660px) {
+  .types__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media (max-width: 550px) {

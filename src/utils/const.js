@@ -20,3 +20,5 @@ export const typesColors = {
   shadow: '#2C3639',
   unknown: '#FFF6F6',
 };
+
+export const amountToShow = [10, 20, 50];

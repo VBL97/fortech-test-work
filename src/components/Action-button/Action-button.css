@@ -15,3 +15,9 @@
   cursor: pointer;
   opacity: 0.5;
 }
+
+@media (max-width: 355px) {
+  .action-button {
+    width: 40px;
+  }
+}

@@ -9,3 +9,10 @@
 @import url('./Search-input.css');
 @import url('../Action-button/Action-button.css');
 @import url('../Action-button/Action-button-image.css');
+
+@media (max-width: 355px) {
+  .search-panel {
+    width: 320px;
+    justify-content: center;
+  }
+}

@@ -15,18 +15,15 @@ export default function TypesFilter() {
   }
 
   function onTagClick(typeName) {
-    fetchType(typeName);
     setActiveTags((prevActiveTags) => {
       if (prevActiveTags.includes(typeName)) {
+        dispatch(setFetchParams(`https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0`));
         return prevActiveTags.filter((tag) => tag !== typeName);
       } else {
+        dispatch(setFetchParams(`https://pokeapi.co/api/v2/type/${typeName}`));
         return [...prevActiveTags, typeName];
       }
     });
-  }
-
-  function fetchType(type) {
-    dispatch(setFetchParams(`https://pokeapi.co/api/v2/type/${type}`));
   }
 
   return (

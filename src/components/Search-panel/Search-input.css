@@ -13,8 +13,8 @@
   outline: none;
 }
 
-@media (max-width: 550px) {
+/* @media (max-width: 550px) {
   .search-input {
     width: 150px;
   }
-}
+} */
