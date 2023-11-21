@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectPokemonsTypes } from '../../store/reducers/pokemons';
-import './types-filter.css';
+import { selectPokemonsTypes, setFetchParams } from '../../store/reducers/pokemons';
 import { typesColors } from '../../utils/const';
-import { setFetchParams } from '../../store/reducers/pokemons';
+import './types-filter.css';
 
 export default function TypesFilter() {
   const dispatch = useDispatch();
@@ -27,10 +26,6 @@ export default function TypesFilter() {
   }
 
   function fetchType(type) {
-    // fetch(`https://pokeapi.co/api/v2/type/${type}`)
-    //   .then((data) => data.json())
-    //   .then((data) => console.log(data.pokemon));
-
     dispatch(setFetchParams(`https://pokeapi.co/api/v2/type/${type}`));
   }
 

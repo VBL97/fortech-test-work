@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './Search-panel.css';
+import { setFetchParams } from '../../store/reducers/pokemons';
 import pokeball from '../../img/pngaaa.com-96218.png';
 import dismiss from '../../img/dismiss.png';
-import { setFetchParams } from '../../store/reducers/pokemons';
+import './Search-panel.css';
 
 export default function SearchPanel() {
   const dispatch = useDispatch();

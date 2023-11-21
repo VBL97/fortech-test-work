@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import Main from '../../pages/Main/Main';
 import { useDispatch, useSelector } from 'react-redux';
+import Main from '../../pages/Main/Main';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import {
   setPokemons,
   setPokemonsTypes,
@@ -8,8 +10,6 @@ import {
   selectPokemonsFetchParams,
   selectPokemons,
 } from '../../store/reducers/pokemons';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 
 function App() {
   let dispatch = useDispatch();
@@ -26,26 +26,12 @@ function App() {
     if (pokemons === undefined) {
       return;
     }
-
-    console.log(pokemons);
-
     switch (true) {
       case Object.keys(pokemons).includes('weight'):
-        console.log(pokemons);
         dispatch(setPokemonsData([pokemons]));
         break;
       case Object.keys(pokemons).includes('pokemon'):
-        // Code below have to be refactored
-        Promise.all(
-          pokemons.pokemon.map((el) => {
-            return fetch(`https://pokeapi.co/api/v2/pokemon/${el.pokemon.name}`).then((response) =>
-              response.json(),
-            );
-          }),
-        )
-          .then((data) => dispatch(setPokemonsData(data)))
-          .catch((error) => console.error(error));
-        console.log(pokemons);
+        fetchRequestedPokemons(pokemons.pokemon);
         break;
       default:
         fetchRequestedPokemons(pokemons.results);
@@ -53,21 +39,21 @@ function App() {
     }
   }, [dispatch, pokemons]);
 
+  fetch('https://pokeapi.co/api/v2/type/')
+    .then((res) => res.json())
+    .then((data) => dispatch(setPokemonsTypes(data.results)));
+
   function fetchRequestedPokemons(data) {
     Promise.all(
       data.map((el) => {
-        return fetch(`https://pokeapi.co/api/v2/pokemon/${el.name}`).then((response) =>
-          response.json(),
-        );
+        return fetch(
+          `https://pokeapi.co/api/v2/pokemon/${el.pokemon ? el.pokemon.name : el.name}`,
+        ).then((response) => response.json());
       }),
     )
       .then((data) => dispatch(setPokemonsData(data)))
       .catch((error) => console.error(error));
   }
-
-  fetch('https://pokeapi.co/api/v2/type/')
-    .then((res) => res.json())
-    .then((data) => dispatch(setPokemonsTypes(data.results)));
 
   return (
     <>

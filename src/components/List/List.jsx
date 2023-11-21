@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './List.css';
+import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from 'react-redux';
+import Card from '../Card/Card';
+import Loader from '../Loader/Loader';
 import {
   selectPokemons,
   selectPokemonsData,
   setFetchParams,
   selectLoadingStatus,
 } from '../../store/reducers/pokemons';
-import Card from '../Card/Card';
-import Loader from '../Loader/Loader';
-import ReactPaginate from 'react-paginate';
 import { prepareTypes } from '../../utils/preparation-functions';
+import './List.css';
 
 export default function List() {
   const [currentAmount, setCurrentAmount] = useState(10);
