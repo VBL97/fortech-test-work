@@ -59,8 +59,8 @@ function App() {
   return (
     <>
       <Header />
-      <Pokemon />
-      {/* <Main /> */}
+      {/* <Pokemon /> */}
+      <Main />
       <Footer />
     </>
   );
