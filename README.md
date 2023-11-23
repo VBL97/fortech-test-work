@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+Task description
+You need to build a web application with Pokemons. To this you need to use the free pokemon API (https://pokeapi.co/). The application should have next functionality:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+List pokemons in a table view (or cards) with their name, avatar, type (should visually look as a colored tag) and the main pokemon stats (whichever additional pokemon info you want to show)
+When you click on a pokemon in the list, some additional detailed information should be shown on a separate page.
 
-## Available Scripts
+The list must have a pagination with an ability to select how many items to show per page (10 / 20 / 50)
 
-In the project directory, you can run:
+Filter the pokemons by name with a search box
 
-### `npm start`
+Filter the pokemons by type using tags (multiple selected tags have to show pokemons with any of the types selected)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Store selected filters and pagination in the url by query param
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Requirements:
+You have to meet the following requirements:
+The app must be developed with React and Redux (or any other state manager)
+The design of the app is not important, but the overall user experience and usability of the application should be good. You can use the existing UI libraries like Material UI or AntD
+Application should be responsive (look good both on mobile and desktop)
+Code should be linted. Preferably with the eslint standard config (https://github.com/feross/eslint-config-standard)
+The application should be deployed online. Heroku, github pages are a few of free alternatives for deployment
+Source code should be open sourced on GitHub. Once you’ll finish task, please send link to your github repo to manager
+Show your skills
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bonuses
+Following are not a requirement, but will be a bonus for us:
+Use react hooks
+For additional styling use styled-components, emotion or SCSS
+Configure webpack or any other bundler
+CSS animations
+Unit testing with jest/react-testing-library
