@@ -1,0 +1,11 @@
+.list-pagination-previous-page {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+
+.list-pagination-previous-page:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

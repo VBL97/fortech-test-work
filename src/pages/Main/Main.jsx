@@ -5,7 +5,7 @@ import List from '../../components/List/List';
 
 export default function Main() {
   return (
-    <main className='main'>
+    <main className="main">
       <ActionsPanel />
       <List />
     </main>

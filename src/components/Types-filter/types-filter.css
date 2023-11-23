@@ -1,4 +1,4 @@
-.types__container {
+.types-filter {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   border-radius: 30px;
@@ -45,20 +45,20 @@
   }
 }
 
-.types__container {
+.types-filter {
   opacity: 0;
   transition: opacity 0.3s ease, max-height 0.3s ease;
   overflow: hidden;
   max-height: 0;
 }
 
-.types__container.slide-in {
+.types-filter.slide-in {
   animation: slideIn 0.3s ease;
   opacity: 1;
   max-height: 500px;
 }
 
-.types__container.slide-out {
+.types-filter.slide-out {
   animation: slideOut 0.3s ease;
   opacity: 0;
   max-height: 0;
@@ -66,22 +66,22 @@
 }
 
 @media (max-width: 960px) {
-  .types__container {
+  .types-filter {
     grid-template-columns: repeat(7, 1fr);
   }
 }
 
 @media (max-width: 660px) {
-  .types__container {
+  .types-filter {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (max-width: 550px) {
-  .types__container {
+  .types-filter {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@import url('./elements-style/types-tag.css');
-@import url('./elements-style/open-button.css');
+@import url('./styles/types-filter__types-tag.css');
+@import url('./styles/types-filter__open-button.css');

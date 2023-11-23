@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPokemonsTypes, setFetchParams } from '../../store/reducers/pokemons';
 import { typesColors } from '../../utils/const';
@@ -6,7 +6,7 @@ import './types-filter.css';
 
 export default function TypesFilter() {
   const dispatch = useDispatch();
-  const PokemonsTypes = useSelector(selectPokemonsTypes);
+  const pokemonsTypes = useSelector(selectPokemonsTypes);
   const [panelOpened, setPanelOpened] = useState(false);
   const [activeTags, setActiveTags] = useState([]);
 
@@ -28,14 +28,14 @@ export default function TypesFilter() {
 
   return (
     <>
-      <button className='open-button' onClick={onAdvanceButtonClick}>
+      <button className='types-filter__open-button' onClick={onAdvanceButtonClick}>
         {panelOpened ? '↑ Hide types' : '↓ Show types for search'}
       </button>
 
-      <div className={`types__container ${panelOpened ? 'slide-in' : 'slide-out'}`}>
-        {PokemonsTypes?.map((type) => (
+      <div className={`types-filter ${panelOpened ? 'slide-in' : 'slide-out'}`}>
+        {pokemonsTypes?.map((type) => (
           <button
-            className={`types-tag ${activeTags.includes(type.name) ? 'active' : ''}`}
+            className={`types-filter__types-tag ${activeTags.includes(type.name) ? 'active' : ''}`}
             key={type.name}
             style={{
               backgroundColor: activeTags.includes(type.name) ? typesColors[type.name] : '',

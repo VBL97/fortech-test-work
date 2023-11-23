@@ -44,5 +44,6 @@ export {
   selectLoadingStatus,
 };
 
-export const { setPokemons, setFetchParams, setPokemonsData, setPokemonsTypes } =
-  PokemonsSlice.actions;
+export const {
+  setPokemons, setFetchParams, setPokemonsData, setPokemonsTypes,
+} = PokemonsSlice.actions;

@@ -1,0 +1,7 @@
+.card_pokemon-name {
+  margin: 0;
+  text-align: center;
+  font-size: 22px;
+  text-transform: capitalize;
+  color: #eeeeee;
+}

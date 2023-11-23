@@ -26,14 +26,14 @@
   transform: scale(1.07);
 }
 
-@import url('./elements-styles/card_header.css');
-@import url('./elements-styles/card_pokemon-id.css');
-@import url('./elements-styles/card_pokemon-name.css');
-@import url('./elements-styles/card-pokemon-avatar.css');
-@import url('./elements-styles/card_info.css');
-@import url('./elements-styles/card_pokemon-info-block.css');
-@import url('./elements-styles/card_info-heading.css');
-@import url('./elements-styles/card_type-list.css');
-@import url('./elements-styles/card_stats-list.css');
-@import url('./elements-styles/card_text.css');
-@import url('./elements-styles/card_pokemon-type-tag.css');
+@import url('./styles/card_header.css');
+@import url('./styles/card_pokemon-id.css');
+@import url('./styles/card_pokemon-name.css');
+@import url('./styles/card-pokemon-avatar.css');
+@import url('./styles/card_info.css');
+@import url('./styles/card_pokemon-info-block.css');
+@import url('./styles/card_info-heading.css');
+@import url('./styles/card_type-list.css');
+@import url('./styles/card_stats-list.css');
+@import url('./styles/card_text.css');
+@import url('./styles/card_pokemon-type-tag.css');
