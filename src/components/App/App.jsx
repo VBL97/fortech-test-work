@@ -16,6 +16,16 @@ function App() {
   const pokemonsFetchParams = useSelector(selectPokemonsFetchParams);
   const pokemons = useSelector(selectPokemons);
 
+  function fetchRequestedPokemons(pokemonArray) {
+    Promise.all(
+      pokemonArray.map((el) => fetch(`https://pokeapi.co/api/v2/pokemon/${el.pokemon ? el.pokemon.name : el.name}`).then(
+        (response) => response.json(),
+      )),
+    )
+      .then((data) => dispatch(setPokemonsData(data)))
+      .catch((error) => console.error(error));
+  }
+
   useEffect(() => {
     fetch(`${pokemonsFetchParams}`)
       .then((res) => res.json())
@@ -42,18 +52,6 @@ function App() {
   fetch('https://pokeapi.co/api/v2/type/')
     .then((res) => res.json())
     .then((data) => dispatch(setPokemonsTypes(data.results)));
-
-  function fetchRequestedPokemons(data) {
-    Promise.all(
-      data.map((el) =>
-        fetch(`https://pokeapi.co/api/v2/pokemon/${el.pokemon ? el.pokemon.name : el.name}`).then(
-          (response) => response.json(),
-        ),
-      ),
-    )
-      .then((data) => dispatch(setPokemonsData(data)))
-      .catch((error) => console.error(error));
-  }
 
   return (
     <>

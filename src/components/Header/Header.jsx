@@ -1,3 +1,4 @@
+import React from 'react';
 import Logo from '../../img/Pokédex_logo.png';
 import './Header.css';
 

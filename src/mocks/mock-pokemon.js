@@ -1,4 +1,4 @@
-export const pokemon = {
+const pokemon = {
   abilities: [
     {
       ability: {
@@ -1035,3 +1035,5 @@ export const pokemon = {
   ],
   weight: 40,
 };
+
+export default pokemon;

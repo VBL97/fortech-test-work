@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFetchParams } from '../../store/reducers/pokemons';
 import pokeball from '../../img/pokeball.png';
@@ -24,7 +24,7 @@ export default function SearchPanel() {
   return (
     <div className="search-panel">
       {pokemonName.length > 0 ? (
-        <button className="action-button" onClick={handleSearchCancelClick}>
+        <button className="action-button" onClick={handleSearchCancelClick} type="button">
           <img className="action-button-image" src={dismiss} alt="cancel" />
         </button>
       ) : null}
@@ -36,7 +36,11 @@ export default function SearchPanel() {
           onChange={(evt) => setPokemonName(evt.target.value)}
           className="search-panel__input"
         />
-        <button className="action-button" onClick={(evt) => handleShowButtonClick(evt)}>
+        <button
+          className="action-button"
+          onClick={(evt) => handleShowButtonClick(evt)}
+          type="submit"
+        >
           <img className="action-button-image" src={pokeball} alt="pokeball" />
         </button>
       </form>

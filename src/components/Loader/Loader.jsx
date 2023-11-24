@@ -1,3 +1,4 @@
+import React from 'react';
 import pokeloader from '../../img/pokeball.png';
 import './Loader.css';
 

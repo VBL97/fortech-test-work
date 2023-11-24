@@ -1,3 +1,4 @@
+import React from 'react';
 import question from '../../img/no-image.png';
 import { typesColors } from '../../utils/const';
 import './Card.css';
@@ -14,7 +15,11 @@ export default function Card({
           {id}
         </b>
       </div>
-      <img className="card-pokemon-avatar" src={avatar === null ? question : avatar} />
+      <img
+        className="card-pokemon-avatar"
+        src={avatar === null ? question : avatar}
+        alt="pokemon-avatar"
+      />
 
       <div className="card_info">
         <div className="card_pokemon-info-block">

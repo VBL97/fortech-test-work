@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+// Issue with parser. make eslint check. 26 errors. need to be solved
+// Lines with disabled eslint may be refactored
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../Card/Card';
@@ -9,7 +11,7 @@ import {
   setFetchParams,
   selectLoadingStatus,
 } from '../../store/reducers/pokemons';
-import { prepareTypes } from '../../utils/preparation-functions';
+import prepareTypes from '../../utils/preparation-functions';
 import { amountToShow } from '../../utils/const';
 import './List.css';
 
@@ -19,8 +21,8 @@ export default function List() {
   const dispatch = useDispatch();
   const pokemons = useSelector(selectPokemons);
   const pokemonsData = useSelector(selectPokemonsData);
+  // eslint-disable-next-line
   const pageCount = Math.ceil(pokemons?.count / currentAmount);
-  // const pageCount = Math.ceil(pokemons.pokemon.length / currentAmount);
   const loading = useSelector(selectLoadingStatus);
 
   useEffect(() => {
@@ -37,26 +39,27 @@ export default function List() {
   }
 
   const handlePageClick = (event) => {
+    // eslint-disable-next-line
     setNextAmount((event.selected * currentAmount) % pokemons?.count);
   };
 
   return (
     <div className='list'>
+      {/* // eslint-disable-next-line */}
       {pokemonsData?.length !== 1 ? (
         <>
           <div className='list_count'>
-            {amountToShow.map((amount) => {
-              return (
-                <button
-                  className={`list_count-amount ${
-                    currentAmount === amount ? 'list_count-amount_current' : null
-                  }`}
-                  onClick={() => handleAmountButtonClick(amount)}
-                  key={amount}>
-                  {amount}
-                </button>
-              );
-            })}
+            {amountToShow.map((amount) => (
+              <button
+                className={`list_count-amount ${
+                  currentAmount === amount ? 'list_count-amount_current' : null
+                }`}
+                onClick={() => handleAmountButtonClick(amount)}
+                key={amount}
+                type='button'>
+                {amount}
+              </button>
+            ))}
           </div>
           <ReactPaginate
             pageCount={pageCount}

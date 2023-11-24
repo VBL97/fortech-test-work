@@ -1,10 +1,8 @@
 import React from 'react';
 import './Pokemon.css';
-import { pokemon } from '../../mocks/mock-pokemon';
+import pokemon from '../../mocks/mock-pokemon';
 
 export default function Pokemon() {
-  console.log(pokemon);
-
   return (
     <div className="pokemon">
       <div className="pokemon__data">
@@ -31,7 +29,9 @@ export default function Pokemon() {
           </div>
           <div className="pokemon__stats">
             <h3>Stats:</h3>
-            {pokemon.stats.map((el) => <p key={el.name}>{`${el.stat.name.toLocaleUpperCase()}: ${el.base_stat}`}</p>)}
+            {pokemon.stats.map((el) => (
+              <p key={el.name}>{`${el.stat.name.toLocaleUpperCase()}: ${el.base_stat}`}</p>
+            ))}
           </div>
           <div className="pokemon__abilities">
             <h3>Abilities:</h3>
