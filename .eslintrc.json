@@ -1,10 +1,18 @@
 {
   "extends": "airbnb",
-  // Check solution later
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-unsafe-optional-chaining": "off"
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      "presets": ["@babel/preset-react"]
+    }
+  },
   "env": {
     "jest": true,
     "browser": true

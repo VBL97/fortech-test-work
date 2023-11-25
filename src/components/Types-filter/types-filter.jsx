@@ -32,7 +32,7 @@ export default function TypesFilter() {
       </button>
 
       <div className={`types-filter ${panelOpened ? 'slide-in' : 'slide-out'}`}>
-        {pokemonsTypes.map((type) => (
+        {pokemonsTypes?.map((type) => (
           <button
             className={`types-filter__types-tag ${activeTags.includes(type.name) ? 'active' : ''}`}
             key={type.name}

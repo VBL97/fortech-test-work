@@ -1,5 +1,3 @@
-// Issue with parser. make eslint check. 26 errors. need to be solved
-// Lines with disabled eslint may be refactored
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,7 +19,6 @@ export default function List() {
   const dispatch = useDispatch();
   const pokemons = useSelector(selectPokemons);
   const pokemonsData = useSelector(selectPokemonsData);
-  // eslint-disable-next-line
   const pageCount = Math.ceil(pokemons?.count / currentAmount);
   const loading = useSelector(selectLoadingStatus);
 
@@ -39,16 +36,14 @@ export default function List() {
   }
 
   const handlePageClick = (event) => {
-    // eslint-disable-next-line
     setNextAmount((event.selected * currentAmount) % pokemons?.count);
   };
 
   return (
-    <div className='list'>
-      {/* // eslint-disable-next-line */}
+    <div className="list">
       {pokemonsData?.length !== 1 ? (
         <>
-          <div className='list_count'>
+          <div className="list_count">
             {amountToShow.map((amount) => (
               <button
                 className={`list_count-amount ${
@@ -56,25 +51,26 @@ export default function List() {
                 }`}
                 onClick={() => handleAmountButtonClick(amount)}
                 key={amount}
-                type='button'>
+                type="button"
+              >
                 {amount}
               </button>
             ))}
           </div>
           <ReactPaginate
             pageCount={pageCount}
-            containerClassName='list-pagination'
-            breakLabel='...'
-            nextLabel='>'
-            previousLabel='<'
+            containerClassName="list-pagination"
+            breakLabel="..."
+            nextLabel=">"
+            previousLabel="<"
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
             onPageChange={handlePageClick}
             renderOnZeroPageCount={null}
-            pageLinkClassName='list-pagination-page'
-            activeLinkClassName='list-pagination-active-page'
-            previousLinkClassName='list-pagination-previous-page'
-            nextLinkClassName='list-pagination-next-page'
+            pageLinkClassName="list-pagination-page"
+            activeLinkClassName="list-pagination-active-page"
+            previousLinkClassName="list-pagination-previous-page"
+            nextLinkClassName="list-pagination-next-page"
           />
         </>
       ) : null}
@@ -82,7 +78,7 @@ export default function List() {
       {loading ? (
         <Loader />
       ) : (
-        <ul className='list_content'>
+        <ul className="list_content">
           {pokemonsData?.map((pokemon) => (
             <Card
               id={pokemon.id}
